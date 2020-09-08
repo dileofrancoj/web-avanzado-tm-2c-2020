@@ -1,0 +1,53 @@
+CLASE 1 --> REPASO (JAVASCRIPT)
+CLASE 2 --> REPASO (JAVASCRIPT + GIT)
+CLASE 3 --> REPASO (MYSQL)
+CLASE 4 --> NodeJS 
+            --> Conceptos previos
+            --> Introducción
+            --> routing
+CLASE 5 --> NodeJS
+            --> knex JS
+CLASE 6 --> NodeJS 
+            --> Registro
+            --> Autenticación y tokens
+            --> knexJS
+CLASE 7 --> NodeJS 
+                --> Envío de correos
+                --> Rutas protegidas (middlewares)
+                --> Verificación de correos por enlace (expiración)
+CLASE 8 --> NodeJS 
+                --> Conceptos de API 
+                --> CRUD's 
+CLASE 9 --> NodeJS 
+                --> API's externas 
+                --> Firebase
+CLASE 10 --> NodeJS 
+                --> Comprobación de datos (@hapi/joi)
+                --> Middlewares para validación 
+
+CLASE 11 --> MongoDB 
+                --> Introducción MongoDB
+CLASE 12 --> NodeJS 
+                --> MongoDB + NodeJS 
+                --> CRUD 
+CLASE 13 --> NodeJS 
+                --> Login con mongo 
+                --> Registro con mongo 
+                --> Token con mongo 
+CLASE 14 --> Angular 
+            --> Introducción a ts , Angular CLI y Routing
+CLASE 15 --> Angular 
+            --> Servicios y consumo de datos (propios y externos)
+CLASE 16 --> Angular
+            --> CRUD desde angular a node consumiendo un base service
+CLASE 17 --> Angular
+            --> Tipos de routing (lazy modules)
+CLASE 18 --> Angular
+            --> Guardians y Material
+CLASE 19 --> Angular
+CLASE 19 --> Angular
+CLASE 21 --> Angular
+            --> Firebase
+CLASE 22 --> REACT
+CLASE 23 --> REACT 
+CLASE 24 --> REACT
