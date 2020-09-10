@@ -1,0 +1,48 @@
+POSTMAN 
+
+API : Application programing interfaz
+Interfaz : Capa de abstracción
+
+API REST  
+https://rickandmortyapi.com/documentation/#rest (key access key secret)
+https://jsonplaceholder.typicode.com/
+
+200 --> OK
+300 --> OK + CACHÉ
+401 --> Unauthorized
+404 --> Not Found
+500 Internal server error --> Error del servidor
+
+Formas de envío de información 
+    POST -> body
+    GET  -> url (params, querys)
+
+body {id : 1}
+www.unaurlcualquiera.com/character/1
+www.unaurlcualquiera.com?character=1
+
+POST , PUT, GET, DELETE
+INSERT, UPDATE, SELECT, DELETE
+
+REGISTRO 
+POST
+    1. body 
+        data :{nombre : 'franco', apellido : 'di leo', mail : 'dileo.francoj@gmail.com'}
+        url : 'http://francodileo.com.ar/register/new'
+
+PUT    
+EDITAR USUARIO 
+    2. 
+        data : {nombre : 'franco2', apellido : 'di leo 2', mail: 'dileo.francoj@gmail.com'}
+        url : 'http://francodileo.com.ar/users/update/1'
+
+GET
+Acceder a un recurso
+        url/
+        url/1
+        url?id=1
+DELETE 
+        /character/id
+
+
+npm i axios (request a url's)

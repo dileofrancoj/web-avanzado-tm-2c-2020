@@ -1,0 +1,26 @@
+Uso básico de NPM
+Introducción a verbos HTTP
+POSTMAN 
+Consumo de API externa
+Promesas en Javascript
+    Concepto de callbacks (return con then y return con await)
+Metodos aplicados a vectores  
+
+
+const axios = require("axios");
+const get = async (url) => {
+  const response = await axios.get(url);
+  return response.data;
+};
+
+const list = async () => {
+  const characters = await get("https://rickandmortyapi.com/api/character");
+  const episodios = characters.results.map((character) => character.name);
+  console.log(episodios);
+};
+
+
+{id : idPersonaje = "falso"}
+list();
+
+REST -> DATOS EN CACHÉ | NO SE ENVIA EL ESTADO | PERMISOS 
