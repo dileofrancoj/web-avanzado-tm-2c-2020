@@ -3,12 +3,15 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
+const dotenv = require("dotenv");
+dotenv.config();
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const personas = require("./routes/personas");
 const categorias = require("./routes/categorias");
 const cursos = require("./routes/cursos");
+const cursadas = require("./routes/cursadas");
+
 var app = express();
 
 // view engine setup
@@ -27,6 +30,8 @@ app.use("/personas", personas); // http://localhost:3000/personas
 // catch 404 and forward to error handler
 app.use("/categorias", categorias);
 app.use("/cursos", cursos);
+app.use("/cursadas", cursadas);
+
 app.use(function (req, res, next) {
   res.status(404).json({ message: "Página no encontrada" });
 });

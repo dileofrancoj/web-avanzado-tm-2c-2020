@@ -11,6 +11,10 @@ const getSingle = (id) =>
   bd("cursos")
     .join("categorias", "cursos.idCategoria", "categorias.id")
     .where("cursos.id", id)
-    .select("cursos.nombre", "categorias.nombre");
+    .select("cursos.nombre", "categorias.nombre as nombreCategoria");
 
+// {
+// "nombre" : "nombre curso",
+// "nombreCategoria" : "nombre de la categoria"
+//}
 module.exports = { getSingle };
