@@ -3,25 +3,29 @@ const router = express.Router();
 const fs = require("fs"); //file system
 const jwt = require("jsonwebtoken");
 const sha1 = require("sha1");
-const publicKey = fs.readFileSync("./../keys/public.pem");
+const privateKey = fs.readFileSync("./keys/private.pem");
 const service = require("./../models/auth");
 // npmjs.com
 const signOptions = { algorithm: "RS256", expiresIn: "2h" };
 
-const createToken = () => {};
+const createToken = (payload) => jwt.sign(payload, privateKey, signOptions);
 
 const auth = async (req, res) => {
   try {
     const { usuario, password } = req.body;
-    const user = await service.authenticate(usuario, password); // [], [{}]
+    // pastelito1
+    const [user] = await service.authenticate(usuario, sha1(password));
+    console.log(user);
     if (!user) res.sendStatus(401);
-    // user.habilitado -> condición por omisión
     if (!user.habilitado)
       res.status(401).json({ message: "Confirmá tu cuenta par seguir :O 🎤" });
     if (user.habilitado) {
-      // Creo el token :D :O -_- ;)
+      const token = createToken({ id: user.id });
+      console.log(token);
+      res.json({ JWT: token, info: { usuario, nickname: "frantuko" } });
     }
   } catch (e) {
+    console.log(e);
     res.sendStatus(500);
   }
 };
