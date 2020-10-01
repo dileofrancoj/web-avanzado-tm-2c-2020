@@ -11,7 +11,7 @@ const personas = require("./routes/personas");
 const categorias = require("./routes/categorias");
 const cursos = require("./routes/cursos");
 const cursadas = require("./routes/cursadas");
-
+const auth = require("./routes/auth");
 var app = express();
 
 // view engine setup
@@ -31,6 +31,7 @@ app.use("/personas", personas); // http://localhost:3000/personas
 app.use("/categorias", categorias);
 app.use("/cursos", cursos);
 app.use("/cursadas", cursadas);
+app.use("/auth", auth);
 
 app.use(function (req, res, next) {
   res.status(404).json({ message: "Página no encontrada" });

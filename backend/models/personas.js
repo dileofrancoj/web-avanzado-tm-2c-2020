@@ -1,5 +1,5 @@
 const bd = require("./../utils/bd");
-
+const bdService = require("../utils/dbService");
 const getAll = () => bd("personas").select("*");
 const getSingle = (id) =>
   bd("personas")
@@ -7,7 +7,8 @@ const getSingle = (id) =>
     .select("id", "nombre", "apellido", "mail", "telefono");
 
 // {nombre : 'franco',apellido,mail,telefono}
-const create = (obj) => bd("personas").insert(obj);
+// insert return PK del elemento creado
+const create = (obj) => bdService.create("personas", obj);
 const modify = (id, obj) => bd("personas").where({ id }).update(obj);
 // Row data
 module.exports = { getAll, getSingle, create, modify };
