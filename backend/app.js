@@ -14,6 +14,7 @@ const cursos = require("./routes/cursos");
 const cursadas = require("./routes/cursadas");
 const auth = require("./routes/auth");
 const perfil = require("./routes/perfil");
+const registro = require("./routes/registro");
 var app = express();
 
 // view engine setup
@@ -34,6 +35,7 @@ app.use("/categorias", categorias);
 app.use("/cursos", cursos);
 app.use("/cursadas", cursadas);
 app.use("/auth", auth);
+app.use("/registro", registro);
 app.use("/perfil", secured, perfil);
 
 app.use(function (req, res, next) {

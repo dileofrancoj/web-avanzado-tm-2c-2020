@@ -7,7 +7,6 @@ const privateKey = fs.readFileSync("./keys/private.pem");
 const service = require("./../models/auth");
 // npmjs.com
 const signOptions = { expiresIn: "2h" };
-
 const createToken = (payload) => jwt.sign(payload, privateKey, signOptions);
 
 const auth = async (req, res) => {
@@ -19,8 +18,8 @@ const auth = async (req, res) => {
     if (!user.habilitado)
       res.status(401).json({ message: "Confirmá tu cuenta par seguir :O 🎤" });
     if (user.habilitado) {
-      const token = createToken({ id: user.id });
-      res.json({ JWT: token, info: { usuario, nickname: "frantuko" } });
+      const token = createToken({ id: user.id }); // sql
+      res.json({ JWT: token, info: { usuario } });
     }
   } catch (e) {
     console.log(e);

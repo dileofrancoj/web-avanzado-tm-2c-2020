@@ -8,7 +8,6 @@ const getSingle = (id) =>
 
 // {nombre : 'franco',apellido,mail,telefono}
 // insert return PK del elemento creado
-const create = (obj) => bdService.create("personas", obj);
 const modify = (id, obj) => bd("personas").where({ id }).update(obj);
 // Row data
-module.exports = { getAll, getSingle, create, modify };
+module.exports = { getAll, getSingle, modify };

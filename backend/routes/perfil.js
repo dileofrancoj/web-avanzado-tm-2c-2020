@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-
-const getProfile = (req, res) => {
-  console.log("EYYYYYY entre al perfil");
-  console.log("El id del usuario autenticado es ", req.id);
-  // traer todas las cursadas activas que pertenecen al usuario con id req.id
-  res.json({ message: "Welcome to the jungle :O" });
-};
+const service = require("./../models/users");
+const getProfile = (req, res) =>
+  service
+    .get(req.id)
+    .then((response) => res.json(response))
+    .catch((e) => res.status(500).json(e));
 
 router.get("/", getProfile);
 

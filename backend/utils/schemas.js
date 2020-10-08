@@ -3,6 +3,8 @@ const TABLES = {
   CURSADAS: "cursadas",
   MODALIDADES: "modalidades",
   CATEGORIAS: "categorias",
+  PERSONAS: "personas",
+  USUARIOS: "usuarios",
 };
 
 module.exports = TABLES;
