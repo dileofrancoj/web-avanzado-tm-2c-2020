@@ -6,14 +6,13 @@ const sha1 = require("sha1");
 const privateKey = fs.readFileSync("./keys/private.pem");
 const service = require("./../models/auth");
 // npmjs.com
-const signOptions = { algorithm: "RS256", expiresIn: "2h" };
+const signOptions = { expiresIn: "2h" };
 
 const createToken = (payload) => jwt.sign(payload, privateKey, signOptions);
 
 const auth = async (req, res) => {
   try {
     const { usuario, password } = req.body;
-    // pastelito1
     const [user] = await service.authenticate(usuario, sha1(password));
     console.log(user);
     if (!user) res.sendStatus(401);
@@ -21,7 +20,6 @@ const auth = async (req, res) => {
       res.status(401).json({ message: "Confirmá tu cuenta par seguir :O 🎤" });
     if (user.habilitado) {
       const token = createToken({ id: user.id });
-      console.log(token);
       res.json({ JWT: token, info: { usuario, nickname: "frantuko" } });
     }
   } catch (e) {

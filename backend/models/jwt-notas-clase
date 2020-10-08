@@ -1,0 +1,36 @@
+Modulos a instalar
+
+npm i jsonwebtoken       ---> OK
+npm i sha1               ---> OK
+npm i node-uuid          ---> OK
+
+Tablas a crear -> 
+    usuarios
+        id, idPersona ,usuario, password, habilitado, eliminado , ts_create, ts_update
+
+PK, UNIQUE
+
+personas
+usuarios
+
+
+PHP -> SESIONES (fragmento de información que se aloja en el servidor)
+JWT -> PUBLICA -> PRIVADA : Es un estandar basado en JSON (compacto) para la creación de tokens de acceso que permite la propagación de información (controles de acceso e identidad) entre cliente y servidor y entre servidores
+
+
+Header -> Parámetro que se envía en una petición HTTP P / proporcionar información vital en el intercambio de datos de datos 
+
+Accept , Content/types, charset , authorization , cookie, host , userAgent
+
+Pasos del server para login : 
+    1. select * from [tabla] where {}
+        -> empty []
+        -> [ {id : 1, mail ...} ]
+    2. SI EXISTE -> GENERO UN JWT Y LO ENVÍO A POSTMAN (VISTA)
+    3. SI NO EXISTE -> 401
+    4. SI EXISTE PERO NO VALIDO EL MAIL -> 401 message : 'Debes confirmar la cuenta para seguir'
+
+2 CLAVES -> PÚBLICA (ENCRIPTAR) & PRIVADA (DESENCRIPTAR)
+
+windows -> putty gen
+linux -> terminal 
