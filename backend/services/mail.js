@@ -1,7 +1,7 @@
 // npm i nodemailer
 const nodemailer = require("nodemailer");
 
-const send = async () => {
+const send = async ({ to, subject = "Gracias por registrarte", html }) => {
   try {
     const transporter = nodemailer.createTransport({
       service: process.env.CORREO_SERVICE,
@@ -13,7 +13,18 @@ const send = async () => {
         rejectUnauthorized: false,
       },
     });
+
+    const mail = {
+      from: process.env.CORREO_USER,
+      to,
+      subject,
+      html,
+    };
+    const { messageId } = await transporter.sendMail(mail);
+    return messageId;
   } catch (e) {
     console.log(e);
   }
 };
+
+module.exports = { send };

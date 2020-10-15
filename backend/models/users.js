@@ -7,4 +7,12 @@ const get = (id) =>
     .andWhere("usuarios.habilitado", true)
     .select("usuario", "nombre", "apellido", "mail", "telefono");
 
-module.exports = { get };
+// update usuarios set {obj} where id = id or confirmacionCorreo = {}
+
+const update = ({ id = false, obj, confirmacionCorreo = {} }) =>
+  bd("usuarios").where(id).orWhere({ confirmacionCorreo }).update(obj);
+
+// update({obj : {habilitado : true}, confirmacionCorreo : req.params})
+
+// update({id :1, obj : {usuario : 'franco2'}})
+module.exports = { get, update };

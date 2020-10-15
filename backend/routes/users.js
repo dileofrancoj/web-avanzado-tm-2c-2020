@@ -1,9 +1,11 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+const service = require("./../models/users");
+const confirm = (req, res) =>
+  service
+    .update({ obj: { habilitado: true }, confirmacionCorreo: req.params.uuid })
+    .then((response) => res.json(response))
+    .catch((e) => res.status(500).json(e));
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
+router.get("/confirm/:uuid", confirm);
 module.exports = router;

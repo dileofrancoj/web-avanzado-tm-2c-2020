@@ -4,6 +4,7 @@ const schemas = {
   create: Joi.object().keys({
     cursoId: schemaId.messages({
       "any.required": "El campo cursoId es obligatorio",
+      "number.integer": "El campo cursoId debe ser numerico",
     }),
     modalidadId: schemaId,
     docenteId: schemaId,
