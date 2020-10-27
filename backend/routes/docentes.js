@@ -19,6 +19,6 @@ const create = (req, res) => {
   }
 };
 
-router.post("/create", upload.single("imagen"), create);
+router.post("/create", upload.array("imagen"), create);
 
 module.exports = router;
