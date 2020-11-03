@@ -15,9 +15,12 @@ export class NavbarComponent implements OnInit {
   constructor() {
     console.log('Lo primero que se ejecuta cuando se instancia la clase :D');
     // singleton :D
+    // http
   }
 
   ngOnInit(): void {
+    // instanciar el servicio
+    // usar el servicio instanciado
     // Ciclo de vida un componente
     // solicitudes http
     console.log('Me ejecuto despues');

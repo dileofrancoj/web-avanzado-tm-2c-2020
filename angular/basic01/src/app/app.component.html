@@ -1,7 +1,21 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center mt-4">
+    <div class="col-6">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="buscar"
+        autofocus
+        name="empleados"
+        (input)="handlerInput($event)"
+      />
+    </div>
     <div class="col-12">
+      <button (click)="showMessage()" class="btn btn-primary">Apretame</button>
+      {{ message }}
+    </div>
+    <div class="col-12 mt-5">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -18,13 +32,14 @@
             <td>
               {{ empleado.sueldo | currency: "ARS" }}
             </td>
-            <td *ngIf="empleado.edad >= 18">Es mayor de edad</td>
-            <td *ngIf="empleado.edad <= 18">Es menor de edad</td>
+            <td *ngIf="empleado.edad >= 18; else esMenor">Es mayor de edad</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
+<ng-template #esMenor>
+  <td>Es menor de edad</td>
+</ng-template>
 <!-- <app-footer></app-footer> -->
