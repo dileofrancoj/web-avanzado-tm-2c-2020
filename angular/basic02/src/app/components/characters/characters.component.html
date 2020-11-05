@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div
+      *ngFor="let character of characters"
+      class="col-md-4 col-lg-4 col-12 mt-3 mb-3"
+    >
+      <div class="card">
+        <img src="{{ character.image }}" class="card-img-top" alt="nombre" />
+        <div class="card-body">
+          <h3 class="card-title">{{ character.name }}</h3>
+          <p class="card-text">
+            {{ character.species }} - {{ character.status }} -{{
+              character.gender
+            }}
+          </p>
+          <p>{{ character.created | date: "yyyy-MM-dd - hh:mm:ss" }}</p>
+          <a
+            routerLink="/character/{{ character.id }}"
+            class="btn btn-primary btn-block"
+            >Ver más</a
+          >
+          <app-navbar></app-navbar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
