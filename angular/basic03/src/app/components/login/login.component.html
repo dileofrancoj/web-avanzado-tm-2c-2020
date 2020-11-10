@@ -1,0 +1,32 @@
+<!--  
+
+    formControlName=""
+
+-->
+<div class="container-fluid m-0 bg-dark">
+  <div class="row justify-content-center align-items-center height-login">
+    <div class="col-4">
+      <form action="" [formGroup]="form" (ngSubmit)="login()">
+        <div class="form-group">
+          <input
+            autofocus
+            class="form-control"
+            formControlName="usuario"
+            placeholder="usuario"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            formControlName="password"
+            type="password"
+            placeholder="*******"
+          />
+        </div>
+        <button [disabled]="form.invalid" class="btn btn-warning btn-block">
+          Ingresar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
