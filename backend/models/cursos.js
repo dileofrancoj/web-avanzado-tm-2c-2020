@@ -13,8 +13,13 @@ const getSingle = (id) =>
     .where("cursos.id", id)
     .select("cursos.nombre", "categorias.nombre as nombreCategoria");
 
+const getAll = () =>
+  bd("cursos")
+    .join("categorias", "cursos.idCategoria", "categorias.id")
+    .select("cursos.nombre", "categorias.nombre as nombreCategoria");
+
 // {
 // "nombre" : "nombre curso",
 // "nombreCategoria" : "nombre de la categoria"
 //}
-module.exports = { getSingle };
+module.exports = { getSingle, getAll };

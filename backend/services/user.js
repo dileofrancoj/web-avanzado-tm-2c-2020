@@ -17,13 +17,17 @@ const create = async (obj) => {
     };
 
     const [idUsuario] = await bd("usuarios").insert(user);
+    return idUsuario;
     // envie un mail
+    /*
+    
     const messageId = await send({
       to: mail,
       subject: "Gracias por registrate",
       html: "Envio de link unico para validar cuenta",
     });
     return messageId;
+    */
   } catch (e) {
     console.log(e);
   }

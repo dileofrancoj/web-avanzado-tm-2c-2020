@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 // HttpClient
+import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 @Injectable({
@@ -7,20 +8,20 @@ import { Router } from '@angular/router';
 })
 // Router redirecciones, ActivatedRoute -> params
 export class BaseService {
-  urlServer: string = 'http://localhost:3000';
+  urlServer: string = environment.url;
   // get , post, headers
   // location.href = "/"
   endpoint = '';
   constructor(private http: HttpClient, private router: Router) {}
 
   // SEO
-  setEndPoint(endpoint) {
+  setEndPoint(endpoint: string) {
     this.endpoint = endpoint;
   }
 
   private getHttpOptions() {
     const httpOptions = {};
-    const token = localStorage.getItem('JWT');
+    const token = localStorage.getItem('JWT'); //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjA1MTg1MTU4LCJleHAiOjE2MDUxOTIzNTh9.Jsjgbq-DntseYRXB-hHTclKZuIbpJWweRQN0brILrKM
     token
       ? (httpOptions['headers'] = new HttpHeaders({
           Authorization: token,
@@ -40,7 +41,7 @@ export class BaseService {
       this.handlerError(e);
     }
   }
-  async post(obj) {
+  async post(obj: any) {
     // return await this.http.get(url).toPromise()
     try {
       return await this.http
@@ -50,6 +51,17 @@ export class BaseService {
       this.handlerError(e);
     }
   }
+  async put(obj: any) {
+    // return await this.http.get(url).toPromise()
+    try {
+      return await this.http
+        .put(`${this.urlServer}/${this.endpoint}`, obj, this.getHttpOptions())
+        .toPromise();
+    } catch (e) {
+      this.handlerError(e);
+    }
+  }
+  // PUT -> ()
 
   handlerError(e) {
     e.status === 401 ? this.router.navigate(['login']) : null;

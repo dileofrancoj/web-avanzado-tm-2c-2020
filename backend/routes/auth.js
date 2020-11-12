@@ -15,8 +15,7 @@ const auth = async (req, res) => {
     const [user] = await service.authenticate(usuario, sha1(password));
     console.log(user);
     if (!user) res.sendStatus(401);
-    if (!user.habilitado)
-      res.status(401).json({ message: "Confirmá tu cuenta par seguir :O 🎤" });
+    if (!user.habilitado) res.sendStatus(401);
     if (user.habilitado) {
       const token = createToken({ id: user.id }); // sql
       res.json({ JWT: token, info: { usuario } });

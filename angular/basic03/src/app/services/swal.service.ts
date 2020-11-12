@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
-
+import Swal from 'sweetalert2';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SwalService {
-
-  constructor() { }
+  normalMessage({ html, icon, timer }) {
+    Swal.fire({
+      html,
+      icon: icon || 'success',
+      showConfirmButton: true,
+      timer: timer || 1500,
+    });
+  }
 }

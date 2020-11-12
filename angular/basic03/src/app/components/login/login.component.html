@@ -1,14 +1,14 @@
-<!--  
-
-    formControlName=""
-
--->
 <div class="container-fluid m-0 bg-dark">
   <div class="row justify-content-center align-items-center height-login">
     <div class="col-4">
       <form action="" [formGroup]="form" (ngSubmit)="login()">
         <div class="form-group">
+          <label for="usuario" class="text-white"
+            >Usuario <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("usuario") }}</span>
           <input
+            id="usuario"
             autofocus
             class="form-control"
             formControlName="usuario"
@@ -16,7 +16,13 @@
           />
         </div>
         <div class="form-group">
+          <label for="password" class="text-white"
+            >Password <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("password") }}</span>
+
           <input
+            id="password"
             class="form-control"
             formControlName="password"
             type="password"

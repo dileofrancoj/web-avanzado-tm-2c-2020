@@ -1,1 +1,94 @@
-<p>registro works!</p>
+<div class="container-fluid m-0 bg-dark" *ngIf="loaded; else loading">
+  <div class="row justify-content-center align-items-center height-login">
+    <div class="col-4">
+      <form action="" [formGroup]="form" (ngSubmit)="register()">
+        <div class="form-group">
+          <label for="usuario" class="text-white"
+            >Usuario <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("usuario") }}</span>
+          <input
+            id="usuario"
+            autofocus
+            class="form-control"
+            formControlName="usuario"
+            placeholder="usuario"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password" class="text-white"
+            >Password <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("password") }}</span>
+
+          <input
+            id="password"
+            class="form-control"
+            formControlName="password"
+            type="password"
+            placeholder="*******"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nombre" class="text-white"
+            >Nombre <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("nombre") }}</span>
+
+          <input
+            id="nombre"
+            class="form-control"
+            formControlName="nombre"
+            placeholder="Nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label for="apellido" class="text-white"
+            >Apellido <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("apellido") }}</span>
+
+          <input
+            id="apellido"
+            class="form-control"
+            formControlName="apellido"
+            placeholder="Apellido"
+          />
+        </div>
+        <div class="form-group">
+          <label for="telefono" class="text-white"
+            >Telefono <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("telefono") }}</span>
+
+          <input
+            id="telefono"
+            class="form-control"
+            formControlName="telefono"
+            placeholder="telefono"
+          />
+        </div>
+        <div class="form-group">
+          <label for="mail" class="text-white"
+            >Mail <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("mail") }}</span>
+
+          <input
+            id="mail"
+            class="form-control"
+            formControlName="mail"
+            placeholder="example@gmail.com"
+          />
+        </div>
+        <button [disabled]="form.invalid" class="btn btn-warning btn-block">
+          Ingresar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-loading value="registro"></app-loading>
+</ng-template>
