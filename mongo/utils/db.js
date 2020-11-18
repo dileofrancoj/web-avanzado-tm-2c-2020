@@ -1,19 +1,12 @@
 const MongoClient = require("mongodb").MongoClient;
 
-async function pool() {
-  // Connection URL
-  const url = "mongodb://localhost:27017/";
-  // Database Name
-  const dbName = "personas";
-  let client;
+const pool = async () => {
   try {
-    client = await MongoClient.connect(url);
-
-    const db = client.db(dbName);
-
-    return db;
+    return (await MongoClient.connect("mongodb://localhost:27017/")).db(
+      "personas"
+    );
   } catch (err) {
     console.log(err.stack);
   }
-}
+};
 module.exports = { pool };
