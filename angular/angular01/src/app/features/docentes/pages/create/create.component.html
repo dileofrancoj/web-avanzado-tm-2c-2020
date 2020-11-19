@@ -32,9 +32,17 @@
             class="form-control"
             (change)="onFileSelected($event)"
           />
-          <img [src]="previewUrl" style="width: 12rem; height: auto" />
+          <div *ngIf="image">
+            <img [src]="previewUrl" style="width: 12rem; height: auto" />
+            <button type="button" (click)="eliminar()">X</button>
+          </div>
         </div>
+        <button type="button" (click)="upload()" [disabled]="form.invalid">
+          Nuevo docente
+        </button>
       </form>
     </div>
   </div>
 </div>
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<button mat-button color="primary">Primary</button>

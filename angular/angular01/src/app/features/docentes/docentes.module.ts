@@ -6,6 +6,7 @@ import { AllComponent } from './pages/all/all.component';
 import { CreateComponent } from './pages/create/create.component';
 import { DocentesComponent } from './docentes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [AllComponent, CreateComponent, DocentesComponent],
@@ -14,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DocentesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSliderModule,
   ],
   exports: [AllComponent, CreateComponent, DocentesComponent],
 })
