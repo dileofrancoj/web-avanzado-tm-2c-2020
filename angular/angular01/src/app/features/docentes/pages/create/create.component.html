@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <form [formGroup]="form">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="nombre"
+            formControlName="nombre"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="apellido"
+            formControlName="apellido"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="dni"
+            formControlName="dni"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="file"
+            class="form-control"
+            (change)="onFileSelected($event)"
+          />
+          <img [src]="previewUrl" style="width: 12rem; height: auto" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
