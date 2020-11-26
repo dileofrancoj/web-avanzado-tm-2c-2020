@@ -1,1 +1,77 @@
-<p>pipes works!</p>
+<div class="row">
+  <div class="col-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Pipe</th>
+          <th>Input</th>
+          <th>Output</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Currency</td>
+          <td>currency</td>
+          <td>{{ precio }}</td>
+          <td>{{ precio | currency: "BRA" }}</td>
+        </tr>
+        <tr>
+          <td>Currency</td>
+          <td>currency</td>
+          <td>{{ fecha }}</td>
+          <td>{{ fecha | date: "short" }}</td>
+        </tr>
+        <tr>
+          <td>Currency</td>
+          <td>currency</td>
+          <td>{{ fecha }}</td>
+          <td>{{ fecha | date: "short" }}</td>
+        </tr>
+        <tr>
+          <td>number</td>
+          <td>number</td>
+          <td>{{ precioDecimal }}</td>
+          <td>{{ precioDecimal | number: "1.0-1" }}</td>
+        </tr>
+        <tr>
+          <td>json</td>
+          <td>json</td>
+          <td>{{ obj }}</td>
+          <td>{{ obj | json }}</td>
+        </tr>
+        <tr>
+          <td>Porcentaje</td>
+          <td>percent</td>
+          <td>{{ porcentaje }}</td>
+          <td>{{ porcentaje | percent }}</td>
+        </tr>
+        <tr>
+          <td>Slice</td>
+          <td>slice</td>
+          <td>{{ palabras }}</td>
+          <td>{{ palabras | slice: 1 }}</td>
+        </tr>
+        <tr>
+          <td>lowercase</td>
+          <td>slice</td>
+          <td>{{ palabras }}</td>
+          <td>{{ palabras | lowercase }}</td>
+        </tr>
+        <tr>
+          <td>uppercase</td>
+          <td>uppercase</td>
+          <td>{{ palabras }}</td>
+          <td>{{ palabras | uppercase }}</td>
+        </tr>
+        <tr>
+          <td>Capitalize</td>
+          <td>capitalize</td>
+          <td>{{ nombre }}</td>
+          <td>{{ nombre | capitalize }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div *ngFor="let product of products">
+  {{ product.nombre }}
+</div>
+
+<form [formGroup]="form">
+  <input
+    type="text"
+    placeholder="Nombre del producto"
+    formControlName="nombre"
+  />
+  {{ verifyField("nombre") }}
+  <input type="number" placeholder="precio" formControlName="precio" />
+  <input type="number" placeholder="stock" formControlName="stock" />
+  <button [disabled]="form.invalid">Enviar</button>
+</form>

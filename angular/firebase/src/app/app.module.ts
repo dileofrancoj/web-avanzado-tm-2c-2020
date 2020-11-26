@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CapitalizePipe } from './pipes/capitalize.pipe';
-
+import { ProductosComponent } from './components/productos/productos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductosComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NoopAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
