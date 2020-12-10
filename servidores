@@ -1,0 +1,99 @@
+
+Delegar dominios: https://nic.ar/es/ayuda/instructivos/delegacion-de-dominios
+54.94.3.63
+Node: corren por el puerto 80
+
+
+
+Cliente:80 -> Node:3000 -> MySQL
+
+REAL : api.encontrame.ar:80 -> Apache (api) -> Node:3000
+Ejemplo: back.encontrame.ar:80 -> Apache (back) -> Node:8000
+
+
+sudo systemctl status apache2 -> active
+sudo systemctl restart apache2 -> reiniciar apache
+
+Ruta donde se instala apache
+cd /etc/apache2
+
+------------------------------------------------------------------------------------------------
+
+EC2 
+    -> APACHE (REVERSE PROXY)
+    -> NODE (API REST) (conexión MySQL: localhost, root, password)
+    -> MySQL
+
+S3 
+    -> Aplicación (angular / react) encontrame.ar
+    -> Imagenes                     images
+
+
+Route53: 
+    -> api.suaplicacion.com.ar --> Tiene que pegarle a la IP de ec2
+    -> suaplicacion.comar --> tiene que pegarle a la IP del bucket
+
+
+sudo npm i forever -g (corre aplicaciones en segundo plano)
+
+APACHE + REVERSE PROXY:
+https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension
+
+
+Terminar instancias ec2
+ip elasticas
+route 53
+
+
+APACHE:
+/etc/apache2/sites-available (reverse proxy)
+
+creo el archivo api.encontrame.conf
+<VirtualHost *:80>
+
+        ServerName api.encontrame.ar
+        ServerAdmin dileo.francoj@gmail.com
+
+        <Location />
+
+                ProxyPass http://localhost:3000/
+                ProxyPassReverse http://localhost:3000/
+                Allow from all
+
+        </Location>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+sudo a2ensite api.encontrame -> crea un simbol link en /etc/apache2/sites-enabled
+
+sudo systemctl restart apache2
+
+
+--------------------------------------------------------------------------------------------------------
+1. Levanto la instancia
+2. Crear los grupos de seguridad (80, 22, 3000?)
+2B. Asociar una IP elastica
+3. Abrir EC2
+    -> Instalar node (home/ubuntu)
+    -> Instalar npm (home/ubuntu)
+    -> Instalar forever (sudo npm i forever -g)
+
+    -> Pullear el back
+    -> Instalar apache
+    -> Habilitar todos los modos de apache (proxy proxy_ajp proxy_http rewrite deflate headers proxy_balancer proxy_connect proxy_html
+)
+    /etc/apache2
+    -> Reverse proxy (sites-available)
+    -> Enlace simbolico a a2ensite app.encontrame
+
+4. Route53 
+    -> Crear una zona hospedada
+    -> Delegar los name server a nic
+    -> Apuntar el subdominio api.encontrame.ar a la IP (EC2)
+
+5. Crear un Bucket que almacena la aplicacion
+    -> Configuramos que sirva como alojamiento de sitios estaticos y que sea público
+    -> Subimos la aplicacion (TODOS los archivos) despues de buildear (ng build --prod)
+6. Route53 (Bucket)
+    -> Apuntar el dominio a la IP del bucket
